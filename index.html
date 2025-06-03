@@ -1,26 +1,179 @@
-<!DOCTYPE html>
+
+<!-- <link rel="stylesheet" href="static/index.css"> -->
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Paper</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: #f9f9f9;
-    }
-    h1 {
-      text-align: center;
-      max-width: 800px;
-      font-size: 2em;
-    }
-  </style>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+    <link rel="stylesheet" type="text/css" href="./resources/style.css" media="screen"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+  	<title> AGSwap: Overcoming Category Boundaries in Object Fusion via
+        Adaptive Group Swapping</title>
+      <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/
+          if you update and want to force Facebook to re-scrape. -->
+  	<meta property="og:image" content="./resources/fig_0.png"/>
+  	<meta property="og:title" content="TP2O: Creative Text Pair-to-Object Generation using Balance Swap-Sampling." />
+  	<meta property="og:description" content="A simple yet effective sampling method without any training to generate new and meaningful combinations from two given object texts in text-to-image synthesis." />
+    <!-- Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?
+        if you update and want to force Twitter to re-scrape. -->
+    <meta property="twitter:card"          content="summary" />
+    <meta property="twitter:title"         content="TP2O: Creative Text Pair-to-Object Generation using Balance Swap-Sampling." />
+    <meta property="twitter:description"   content="A simple yet effective sampling method without any training to generate new and meaningful combinations from two given object texts in text-to-image synthesis." />
+    <meta property="twitter:image"         content="./resources/fig_0.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <!-- Add your Google Analytics tag here -->
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-97476543-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-97476543-1');
+    </script>
+
 </head>
+<meta charset="utf-8">
 <body>
-  <h1>AGSwap: Overcoming Category Boundaries in Object Fusion via Adaptive Group Swapping</h1>
+
+    
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <div class="centered-content">
+                    <h1 class="publication-title">AGSwap: Overcoming Category Boundaries in Object Fusion via
+                        Adaptive Group Swapping</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div class="container">
+    <br><br>
+    <img style="width: 80%;" src="./resources/new_source/ab_fig.png" alt="Teaser figure."/>
+    <br><br>
+
+   
+
+    <br>
+    <p style="width: 80%; text-align: justify;font-size: 16px;font-family: 'Times New Roman', Times, serif;">
+        We present a simple yet highly efficient method for seamless object fusion, enabling the creation of novel and visually striking hybrid objects. For
+instance, as shown in our results, we successfully merge the concept of a bubble with diverse concepts such as moral, raccoon, kite, volcano, and eagle.
+
+    <br>
+    <hr>
+
+    <h1>Abstract</h1>
+    <p style="width: 80%; text-align: justify;">
+        Fusing cross-category objects to a single coherent object has gained increasing attention in text-to-image (T2I) generation due to its broad applications
+        in virtual reality, digital media, film, and gaming. However, existing methods
+        often produce biased, visually chaotic, or semantically inconsistent results
+        due to overlapping artifacts and poor integration. Moreover, progress in
+        this field has been limited by the absence of a comprehensive benchmark
+        dataset. To address these problems, we propose Adaptive Group Swapping (AGSwap), a simple yet highly effective approach comprising two key
+        components: (1) Group-wise Embedding Swapping, which fuses semantic
+        attributes from different concepts through feature manipulation, and (2)
+        Adaptive Group Updating, a dynamic optimization mechanism guided by a
+        balance evaluation score to ensure coherent synthesis. Additionally, we introduce Cross-category Object Fusion (COF), a large-scale, hierarchically
+        structured dataset built upon ImageNet-1K and WordNet. COF includes 95 superclasses, each with 10 subclasses, enabling 451,250 unique fusion pairs.
+        Extensive experiments demonstrate that AGSwap outperforms state-of-the-art compositional T2I methods, including GPT-Image-1 using simple and
+        complex prompts. <a href="">Project Page</a>
+        
+        </p>
+
+    <br>
+    <hr>
+   
+    <h1>Our framework</h1>
+    <p style="text-align: justify">
+        The Pipeline of our adaptive group swapping, which performs group-embedding swaps and adaptively updates the fusion using a visual balance between
+the input objects and the blended result.
+    </p>
+
+
+    <img style="width: 100%;" src="./resources/new_source/pipline.png" alt="Teaser figure."/>
+    <br><br>
+    <hr>
+    
+    <h1>Comparing Results</h1>
+        
+
+        <h2>Comparison with the combinational T2I methods.</h2>
+            <p> Comparison with combinational T2I methods (e.g., BASS [Li et al. 2024] and ConceptLab [Richardson et al. 2024]) and prompt-based methods (e.g.,
+                SDXL-Turbo [Surkov et al. 2024] and GPT-image-1 [OpenAI 2025]). Compared to them, our approach demonstrates superior object blending.
+                </p>
+            <img style="width: 80%;" src="./resources/new_source/fig_res_simple.png" alt="Teaser figure."/>
+        <h2>Comparison with the prompt-based methods.</h2>
+            <p>Comparison with prompt engineering. We evaluate our method against SDXL-Turbo and GPT-image-1 , using GPT-4o to generate prompts. Top
+                    (Our AGSwap): Successfully fuses objects into a coherent result. Middle: Prompts are generated by GPT-4o from two category labels, leading to less precise
+                    compositions. Bottom: Prompts are derived by GPT-4o from our synthesized images, yet still struggle with seamless fusion.</p>
+            <img style="width: 80%;" src="./resources/new_source/fig_res_complex.png" alt="Teaser figure."/>
+
+
+        
+    <br> <br>
+    <hr>
+    
+
+    <h1>More Visual Results</h1>
+
+      <img style="width: 80%;" src="./resources/new_source/fig_more_res.png" alt="Teaser figure."/>
+
+    <h2>Stylist Results</h2>
+    <p style="TEXT-ALIGN: center">
+        presents the results of our method under stylized prompts.We adopted five distinct styles: colorful graffiti, lowpoly, mosaic,
+        pop art, and watercolor. The input prompts were modified to follow
+the format "A [style] of [word1]" and "A [style] of [word2]". As
+shown in the figure, our method is still able to generate creative and
+coherent fusion results under stylized descriptions, demonstrating
+its effectiveness across different visual styles.
+
+    </p>
+      <img style="width: 80%;" src="./resources/new_source/sup_style.png" alt="Teaser figure."/>
+
+    <h2> Manually Controlled Bias in Fusion Results</h2>
+        <p style="TEXT-ALIGN: center">
+            presents the results under manually specified bias
+        </p>
+        <img style="width: 80%;" src="./resources/new_source/more_res_bias.png" alt="Teaser figure."/>
+    <br><br>
+    <hr>
+ 
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+</script>
+
 </body>
+
 </html>
